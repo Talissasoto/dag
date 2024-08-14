@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Qué hacemos?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="img/favicon-d-dag.png">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="img/LOGODAG-svg.svg" alt="Logo DAG" class="logo">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="que-hacemos.html">QUÉ HACEMOS?</a></li>
+          <li><a href="servicios.html">SERVICIOS</a></li>
+          <li><a href="nosotros.html">NOSOTROS</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+        <ul class="social-icons">
+          <li><a href="https://www.instagram.com/BenSassiAladin" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://tn.linkedin.com/in/aladinbensassi" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+    </header>
+  </div>
+
+<!-- Slider -->
+<div id="slider">
+  <div class="slides">
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>Calidad, Seguridad, Eficiencia</h1>
+          <h2>UN OPERADOR, TODAS TU SOLUCIONES</h2>
+        </div>
+      </div>
+      <div class="image">
+        <img src="img/technology-background-with-hand-holding-digital-world.jpg" alt="Image 1">
+      </div>
+    </div>
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>Tu VISIÓN es nuestra misión </h1>
+          
+        </div>
+      </div>
+      <div class="image">
+        <img src="img/man-giving-business-presentation-using-high-technology-digital-pen.jpg" alt="Image 2">
+      </div>
+    </div>
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>Tu ÉXITO, nuestra PRIORIDAD</h1>
+          
+        </div>
+      </div>
+      <div class="image">
+        <img src="img/business-team-concept.jpg" alt="Image 3">
+      </div>
+    </div>
+  </div>
+  <div class="switch">
+    <ul>
+      <li>
+        <div class="on"></div>
+      </li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+
+<div class="background">
+  <div class="services">
+    <div class="service">
+      <a href="#compromiso">
+        <img src="img/compromiso.svg" alt="Logística">
+        <h3>COMPROMISO</h3>
+      </a>
+    </div>
+    <div class="service">
+      <a href="#integridad">
+        <img src="img/integridad.svg" alt="Transporte Inter/nacional">
+        <h3>INTEGRIDAD</h3>
+      </a>
+    </div>
+    <div class="service">
+      <a href="#excelencia">
+        <img src="img/excelencia.svg" alt="Comercio Exterior">
+        <h3>EXCELENCIA</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="definition-container">
+  <section id="compromiso" class="definition-section">
+    <img src="img/compromiso.svg" alt="Icono Compromiso" class="definition-icon">
+    <h2>COMPROMISO</h2><br><br>
+    <p>En un mercado cada vez más desafiante y globalizado, nuestro compromiso es proporcionar un servicio especializado que aborde las necesidades únicas de nuestros clientes. Nos comprometemos a establecer relaciones a largo plazo, tomando cada proyecto como propio.</p>
+  </section>
+
+  <section id="integridad" class="definition-section">
+    <img src="img/integridad.svg" alt="Icono Integridad" class="definition-icon">
+    <h2>INTEGRIDAD</h2><br><br>
+    <p>La integridad es el cimiento sobre el cual construimos relaciones sólidas y duraderas con nuestros clientes. En DAG cada acción y decisión refleja nuestros estándares éticos. Valoramos la transparencia en todas nuestras interacciones y nos esforzamos por ser un socio de confianza en tu camino de internalización.</p>
+  </section>
+
+  <section id="excelencia" class="definition-section">
+    <img src="img/excelencia.svg" alt="Icono Excelencia" class="definition-icon">
+    <h2>EXCELENCIA</h2> 
+    <br><br>
+    <p>La excelencia de nuestro servicio nos caracteriza y nos diferencia. Para llevar a cabo nuestra Gestión Integral de Comex, creemos que la adaptación y la innovación son fundamentales para alcanzar el éxito y la competitividad que aspiramos para tu negocio.</p>
+  </section>
+</div>
+
+<script src="slider.js"></script>
+<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".slider");
+    const switchButtons = document.querySelectorAll(".switch li");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.display = "block";
+                switchButtons[i].classList.add("active");
+            } else {
+                slide.style.display = "none";
+                switchButtons[i].classList.remove("active");
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5000);
+
+    switchButtons.forEach((button, index) => {
+        button.addEventListener("click", function() {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+    });
+
+    showSlide(currentSlide);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var sections = document.querySelectorAll('.scroll-section, .definition-section');
+    var screenPosition = window.innerHeight;
+
+    window.addEventListener('scroll', function() {
+        sections.forEach(function(section) {
+            var sectionPosition = section.getBoundingClientRect().top;
+            if (sectionPosition < screenPosition) {
+                section.classList.add('show');
+            }
+        });
+    });
+});
+</script>
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2024 DAG. Todos los derechos reservados.</p>
+  </div>
+</footer> 
+</body>
+</html>

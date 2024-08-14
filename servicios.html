@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Qué hacemos?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="img/favicon-d-dag.png">
+</head>
+<body>
+ 
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="img/LOGODAG-svg.svg" alt="Logo DAG" class="logo">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="que-hacemos.html">QUÉ HACEMOS?</a></li>
+          <li><a href="servicios.html">SERVICIOS</a></li>
+          <li><a href="nosotros.html">NOSOTROS</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+        <ul class="social-icons">
+          <li><a href="https://www.instagram.com/BenSassiAladin" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://tn.linkedin.com/in/aladinbensassi" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Slider -->
+  <div id="slider">
+    <div class="slides">
+      <div class="slider">
+        <div class="legend"></div>
+        <div class="content">
+          <div class="content-txt">
+            <h1>Servicios</h1>
+          </div>
+        </div>
+        <div class="image">
+          <img src="img/skyscrapers-from-low-angle-view.jpg" alt="Image 1">
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Seccion bienvenida -->
+  <section class="text-section" data-aos="fade-up">
+    <h2>Todas las soluciones en un solo lugar.</h2>
+    <p>Contamos con un equipo profesional calificado para atender las necesidades de su empresa.
+      Simplificamos en un único punto de contacto, la coordinación de todos los procesos y agentes involucrados, para lograr una gestión eficiente en el camino hacia su internalización.
+    </p>
+  </section>
+  
+  <!-- Secciones detalladas de servicios -->
+  <section class="services">
+    <div class="service-item">
+      <img src="img/Foto general conexion.jpg" alt="Servicio 1" class="service-img">
+      <h3 class="service-title"><a href="#gestion-externa">Gestión externa de tu Comercio Exterior</a></h3>
+    </div>
+    <div class="service-item">
+      <img src="img/man-warehouse-working.jpg" alt="Servicio 2" class="service-img">
+      <h3 class="service-title"><a href="#despacho-aduanero">Despacho aduanero</a></h3>
+    </div>
+    <div class="service-item">
+      <img src="img/business-team-concept.jpg" alt="Servicio 3" class="service-img">
+      <h3 class="service-title"><a href="#asesoria-comercio">Asesoría en Comercio Internacional</a></h3>
+    </div>
+    <div class="service-item">
+      <img src="img/close-up-hands-holding-box.jpg" alt="Servicio 4" class="service-img">
+      <h3 class="service-title"><a href="#servicio-courier">Servicio de Courier/ Muestras</a></h3>
+    </div>
+    <div class="service-item">
+      <img src="img/businessman-making-presentation-with-his-colleagues-business-strategy-digital-layer-effect-office-as-concept.jpg" alt="Servicio 5" class="service-img">
+      <h3 class="service-title"><a href="#gestion-terceros">Gestión ante terceros Organismos</a></h3>
+    </div>
+    <div class="service-item">
+      <img src="img/ai-generated-boat-picture.jpg" alt="Servicio 6" class="service-img">
+      <h3 class="service-title"><a href="#transporte-internacional">Transporte Internacional</a></h3>
+    </div>
+  </section>  
+  <script src="slider.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const slides = document.querySelectorAll(".slider");
+      const switchButtons = document.querySelectorAll(".switch li");
+      let currentSlide = 0;
+  
+      function showSlide(index) {
+          slides.forEach((slide, i) => {
+              if (i === index) {
+                  slide.style.display = "block";
+                  switchButtons[i].classList.add("active");
+              } else {
+                  slide.style.display = "none";
+                  switchButtons[i].classList.remove("active");
+              }
+          });
+      }
+  
+      function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+      }
+  
+      setInterval(nextSlide, 5000);
+  
+      switchButtons.forEach((button, index) => {
+          button.addEventListener("click", function() {
+              currentSlide = index;
+              showSlide(currentSlide);
+          });
+      });
+  
+      showSlide(currentSlide);
+  });
+  
+  document.addEventListener("DOMContentLoaded", function() {
+      var sections = document.querySelectorAll('.scroll-section, .definition-section');
+      var screenPosition = window.innerHeight;
+  
+      window.addEventListener('scroll', function() {
+          sections.forEach(function(section) {
+              var sectionPosition = section.getBoundingClientRect().top;
+              if (sectionPosition < screenPosition) {
+                  section.classList.add('show');
+              }
+          });
+      });
+  });
+  </script>
+
+  <!-- Definiciones -->
+  <section class="definition-container">
+    <section id="gestion-externa" class="definition-section">
+      <h2>Gestión Externa de tu Comercio Exterior</h2>
+      <br><br>
+      <p>Externalizamos tu departamento de comercio exterior y nos convertimos en socios a través de nuestro servicio de outsourcing. Nos encargamos de la contratación de transporte, seguros, inspecciones, control documental y gestión aduanera. Ofrecemos asesoramiento técnico y legal para optimizar tus operaciones de comercio exterior. Reducimos gastos de contratación, capacitación e infraestructura al confiar en nuestra experiencia y servicios especializados.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="despacho-aduanero" class="definition-section">
+      <h2>Despacho aduanero</h2>
+      <br><br>
+      <p>Nos encargamos del despacho aduanero de tus mercancías, garantizando que cumplan con todas las regulaciones y normativas locales e internacionales para facilitar su entrada y salida de diferentes países.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="asesoria-comercio" class="definition-section">
+      <h2>Asesoría en Comercio Internacional</h2>
+      <br><br>
+      <p>Proporcionamos asesoramiento estratégico y operativo en todas las etapas del comercio internacional, desde la planificación inicial hasta la ejecución y optimización continua.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="servicio-courier" class="definition-section">
+      <h2>Servicio de Courier / Muestras</h2>
+      <br><br>
+      <p>Ofrecemos soluciones de courier y manejo de muestras para asegurar la entrega rápida y segura de documentos y productos a nivel internacional, facilitando tus operaciones de comercio exterior.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="gestion-terceros" class="definition-section">
+      <h2>Gestión ante terceros Organismos</h2>
+      <br><br>
+      <p>Gestionamos trámites y representaciones ante organismos gubernamentales y entidades reguladoras para asegurar el cumplimiento normativo y facilitar tus operaciones de comercio internacional.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="transporte-internacional" class="definition-section">
+      <h2>Transporte Internacional</h2><br><br>
+      <p>Organizamos el transporte internacional de mercancías, asegurando la logística eficiente y segura desde el origen hasta el destino final, optimizando tiempos y costos para tu empresa.</p>
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2024 DAG. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body
+

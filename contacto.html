@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Qué hacemos?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="img/favicon-d-dag.png">
+</head>
+<body class="body-contacto">
+  <header>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="img/LOGODAG-svg.svg" alt="Logo DAG" class="logo">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="que-hacemos.html">QUÉ HACEMOS?</a></li>
+          <li><a href="servicios.html">SERVICIOS</a></li>
+          <li><a href="nosotros.html">NOSOTROS</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+        <ul class="social-icons">
+          <li><a href="https://www.instagram.com/BenSassiAladin" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://tn.linkedin.com/in/aladinbensassi" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="wrapper">
+      <!-- COMPANY INFORMATION -->
+      <div class="company-info">
+        <h3>CONTACTO</h3>
+        <br><br><br>
+        <ul>
+          <li><i class="fa fa-road"></i> Buenos Aires, Argentina</li>
+          <br>
+          <li><i class="fa fa-phone"></i> (+549)11-3850-8639</li>
+          <br>
+          <li><i class="fa fa-envelope"></i> DAG@example.com</li>
+        </ul>
+      </div>
+      <!-- End .company-info -->
+      <!-- CONTACT FORM -->
+      <div class="contact">
+        <h3>DATOS PERSONALES</h3>
+        <br><br><br>
+        <form id="contact-form" method="post" action="submit_form.php">
+          <p>
+            <label for="name">NOMBRE</label>
+            <input type="text" name="name" id="name" required>
+          </p>
+          <br>
+          <p>
+            <label for="company">EMPRESA</label>
+           
+            <input type="text" name="company" id="company">
+          </p>
+          <br>
+          <p>
+            <label for="email">E-mail</label>
+            
+            <input type="email" name="email" id="email" required>
+          </p>
+          <br>
+          <p>
+            <label for="phone">NUMERO TELEFONICO</label>
+            <input type="text" name="phone" id="phone">
+          </p>
+          <br>
+          <p>
+            <label for="reason">MOTIVO DE CONTACTO</label>
+            <select name="reason" id="reason" required>
+              <option value="">Seleccione un motivo...</option>
+              <option value="consulta">Gestión & Despacho de aduanas</option>
+              <option value="consulta">Presupuestos Aduaneros de Importación & Exportación</option>
+              <option value="soporte">Asesoramiento y Contratación de fletes internacionales/ Nacionales</option>
+              <option value="comentarios">Gestión ante Terceros Organismos</option>
+              <option value="comentarios">Servicio Courier/ Envío de muestras</option>
+              <option value="otro">Solicitar Presupuesto Tercializacion Depto. Comex de tu empresa</option>
+              <option value="comentarios">Súmate a nuestro Equipo! Envíanos tu CV</option>
+              <option value="otro">Otro</option>
+                         </select>
+          </p>
+          <br>
+          <p class="full">
+            <label for="message">MENSAJE</label>
+            <textarea name="message" rows="5" id="message"></textarea>
+          </p>
+          <p class="full">
+            <button type="submit">ENVIAR</button>
+          </p>
+        </form>
+        <!-- End #contact-form -->
+      </div>
+      <!-- End .contact -->
+    </div>
+    <!-- End .wrapper -->
+  </div>
+  <!-- End .container -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2024 DAG. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -64,7 +64,7 @@ body {
 .nav-links a {
   color: #252456; /* Cambia el color del texto */
   text-decoration: none; /* Elimina el subrayado del enlace */
-  font-size: 22px; /* Tamaño del texto del icono */
+  font-size: 24px; /* Tamaño del texto del icono */
 }
 
 .nav-links a:hover {
@@ -126,16 +126,19 @@ body {
   padding: 1em;
 }
 
-/*CONTACTO*/
+/* CONTACTO */
 .wrapper > * {
   padding: 1em;
 }
 
 .company-info {
   background: #C3C9DD;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   text-align: left;
+  padding: 20px; /* Espaciado interno */
+  max-width: auto; /* Ancho máximo del cuadro */
+  margin: 20px auto; /* Centra el cuadro */
 }
 
 .company-info h3,
@@ -144,23 +147,42 @@ body {
 }
 
 .company-info ul {
-  list-style: none; 
-  padding: 0; 
+  list-style: none;
+  padding: 0;
 }
 
 .company-info ul li {
-  text-align: left; 
+  text-align: left;
 }
 
 .contact {
-  background: #dcdfea;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  background: url('img/close-up-executives-sitting-table.jpg') no-repeat center center; /* Cambia esto por tu imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el área */
+  padding: 40px; /* Espaciado interno */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: relative; /* Para el pseudo-elemento */
+  max-width: 1200px; /* Ancho máximo del formulario */
+  margin: 20px auto; /* Centra el formulario */
+  color: white; /* Color del texto */
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 1; /* Asegura que esté detrás del contenido */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
 .contact form {
-  max-width: 600px;
-  margin: 0 auto;
+  position: relative; /* Para que el formulario esté encima del fondo */
+  z-index: 2; /* Asegura que el formulario esté encima del pseudo-elemento */
+  max-width: 100%; /* Hace que el formulario sea responsivo */
 }
 
 .contact form label {
@@ -208,39 +230,20 @@ body {
   transition: background-color 0.3s ease;
 }
 
-
-/*FOOTER*/
-footer {
-  text-align: center;
-  padding: 1em;
-  background: #252854;
-  color: #fff;
-}
-
-footer .socials {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-footer .socials li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-footer .socials a {
-  color: #fff;
-  font-size: 20px;
-}
-
-@media only screen and (min-width: 700px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+/* Responsividad */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px; /* Espaciado interno reducido */
   }
 
-  .wrapper > * {
-    padding: 2em;
+  .company-info {
+    padding: 15px; /* Espaciado interno reducido */
+  }
+
+  .contact form button,
+  .contact form input,
+  .contact form textarea {
+    font-size: 16px; /* Tamaño de fuente más pequeño */
   }
 }
 
@@ -325,126 +328,251 @@ footer .socials a {
   background: #ABD579; 
 }
 
-/* Servicios */
-.background {
-  background-color: #252456; 
-  padding: 30px 0; 
+ /* Estilo para el contenedor original */
+.flip-card-container-original .flip-card {
+  background-color: transparent;
+  width: 350px; /* Ajuste del tamaño de la tarjeta */
+  height: 250px; /* Ajuste del tamaño de la tarjeta */
+  perspective: 1000px; /* Agrega una perspectiva 3D */
 }
 
-.services-container {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente el grid */
+/* Contenedor interno para el efecto flip */
+.flip-card-container-original .flip-card-inner {
+  position: relative;
   width: 100%;
-}
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px; /* Ajusta este valor según el ancho máximo deseado */
-  margin: 0 auto; /* Centra el contenedor .services */
-}
-
-
-.service {
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
   text-align: center;
-  padding: 20px;
-  width: 200px; 
-  height: 160px; 
-  transition: transform 0.3s;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-.service img {
-  width: 50px;
-  height: 55px;
-  margin-bottom: 15px;
+/* Efecto de voltear la tarjeta al hacer hover */
+.flip-card-container-original .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.service h3 {
+/* Estilo de la parte frontal y trasera */
+.flip-card-container-original .flip-card-front, 
+.flip-card-container-original .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Estilo de la parte frontal */
+.flip-card-container-original .flip-card-front {
+  background-color: #ffffff;
   color: #ABD579;
-  font-size: 1.2em;
-  font-family: 'Red Hat Text', sans-serif;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
-.service p {
-  color: #666;
-  font-size: 14px;
-  font-family: 'Red Hat Text', sans-serif; 
-  line-height: 64px;
+.flip-card-container-original .flip-card-front img {
+  max-width: 100px; /* Ajusta el tamaño máximo de la imagen al 80% */
+  max-height: 100px; /* Ajusta la altura máxima al 80% */
+  object-fit: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 10px;
+  margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
-.service:hover {
-  transform: scale(1.05);
+/* Estilo de la parte trasera */
+.flip-card-container-original .flip-card-back {
+  background-color: #252456;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.service a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .flip-card {
+    max-width: 90%; /* Ancho máximo más pequeño en pantallas más pequeñas */
+    height: 300px; /* Ajustar altura para móviles */
+  }
 }
 
-.service a:hover {
-  text-decoration: none;
+@media (max-width: 480px) {
+  .flip-card {
+    height: 250px; /* Ajustar altura para pantallas muy pequeñas */
+  }
 }
 
-.definition-container {
+/* Contenedor general */
+.pills-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las pastillas */
+  gap: 80px; /* Espaciado entre las pastillas */
+  flex-wrap: wrap; /* Permite que bajen a una nueva fila si es necesario */
+  padding: 40px 20px; /* Espaciado superior, inferior y lateral */
+  animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Estilo de cada pastilla */
+.pill {
+  width: 200px; /* Ancho de la pastilla */
+  height: 200px; /* Altura de la pastilla */
+  border-radius: 50%; /* Hace la pastilla redonda */
+  overflow: hidden; /* Oculta el contenido desbordado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra tenue */
+  position: relative; /* Necesario para posicionar el texto */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  position: relative;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  transition: transform 0.3s ease; /* Animación al pasar el cursor */
 }
 
-.definition-section {
-  text-align: center;
-  padding: 100px;
-  width: 60%; 
-  position: relative; 
+.pill:hover {
+  transform: translateY(-5px); /* Pequeño levantamiento al hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
 }
 
-.definition-section:not(:last-child)::after {
-  content: "";
+/* Imagen dentro de la pastilla */
+.pill img {
+  width: 100%; /* La imagen ocupa todo el ancho */
+  height: 100%; /* La imagen ocupa toda la altura */
+  object-fit: cover; /* Ajusta la imagen al contenedor sin deformarla */
+  opacity: 0.7; /* Aplica transparencia */
+}
+
+.pill h4 {
   position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 80px;
-  background-color: #ABD579; 
+  bottom: 5px; /* Fija el texto en la parte inferior */
+  width: 100%; /* Ocupa todo el ancho de la pastilla */
+  background-color: rgba(172, 213, 121, 0.747); /* Fondo verde semi-transparente */
+  color: #252456; /* Color del texto */
+  text-align: center; /* Alinea el texto al centro */
+  font-size: 19px; /* Tamaño del texto */
+  font-weight: bold; /* Hace el texto más destacado */
+  padding: 20px 0; /* Aumenta el espacio arriba y abajo del texto */
 }
 
-.definition-icon {
-  display: block;
-  margin: 0 auto 10px;
-  width: 70px; 
-  height: auto;
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media (max-width: 900px) {
-  .definition-container {
-    flex-direction: column;
-    width: 100%;
+/* Responsividad */
+@media (max-width: 768px) {
+  .pill {
+    width: 150px; /* Reduce el tamaño de la pastilla */
+    height: 150px; /* Reduce la altura de la pastilla */
   }
 
-  .definition-section {
-    width: 100%;
-    padding: 20px 0;
+  .pill h4 {
+    font-size: 14px; /* Reduce el tamaño del texto */
+  }
+}
+
+@media (max-width: 480px) {
+  .pill {
+    width: 120px; /* Aún más pequeñas en pantallas pequeñas */
+    height: 120px;
   }
 
-  .definition-section:not(:last-child)::after {
-    width: 100%;
-    height: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
+  .pill h4 {
+    font-size: 12px; /* Texto más pequeño */
+  }
+}
+
+.oval-pill {
+  display: flex;
+  align-items: center; /* Centra el texto verticalmente */
+  justify-content: center; /* Centra el texto horizontalmente */
+  width: 1200px; /* Ancho de la pastilla ovalada */
+  height: 140px; /* Altura de la pastilla ovalada */
+  border-radius: 70px; /* Hace la pastilla ovalada */
+  background-color: #252456; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  font-size: 22px; /* Tamaño del texto */
+  font-weight: bold; /* Hace el texto más destacado */
+  margin: 20px auto; /* Centra la pastilla ovalada en la página */
+  animation: fadeIn 1s; /* Animación de entrada */
+  text-align: center; /* Centra el texto horizontalmente */
+  padding: 0 20px; /* Agrega padding horizontal si es necesario */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+ 
+/* Sección de iconos */
+.icon-section {
+  background-color: #fff; /* Color de fondo de la sección */
+  padding: 40px 0; /* Espaciado superior e inferior */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.icon-container {
+  display: flex; /* Utiliza flexbox para alinear los íconos */
+  justify-content: center; /* Centra los íconos horizontalmente */
+  flex-wrap: wrap; /* Permite que los íconos se ajusten en pantallas más pequeñas */
+  gap: 20px; /* Espacio entre los íconos */
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column; /* Alinea el icono y el título en columna */
+  align-items: center; /* Centra los elementos dentro de cada icono */
+  text-align: center; /* Alinea el texto del título al centro */
+}
+
+.icon-item img {
+  width: 50px; /* Tamaño del icono */
+  height: 50px; /* Tamaño del icono */
+}
+
+.icon-item h4 {
+  color: #252456; /* Color del texto */
+  margin-top: 10px; /* Espacio entre el icono y el título */
+  font-size: 11px; /* Tamaño del texto */
+  display: block; /* Cambia a block para un mejor control */
+  max-width: 100px; /* Ajusta el ancho máximo según sea necesario */
+  text-align: center; /* Alinea el texto al centro */
+  word-wrap: break-word; /* Permite que las palabras largas se dividan */
+}
+
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .pill {
+    width: 60px; /* Ajusta el tamaño de la pastilla en pantallas pequeñas */
+    height: 60px;
+  }
+
+  .oval-pill {
+    width: 150px; /* Ajusta el tamaño de la pastilla ovalada en pantallas pequeñas */
+    height: 60px;
+    font-size: 16px; /* Ajusta el tamaño del texto */
   }
 }
 
@@ -588,12 +716,94 @@ footer .socials a {
   color: #666;
 }
 
+/* Footer */
+footer {
+  background-image: url('img/industrial-port-container-yard.jpg');  /* Cambia esta ruta por la de tu imagen */
+  background-size: cover;  /* Hace que la imagen cubra todo el fondo */
+  background-position: center;  /* Centra la imagen */
+  background-repeat: no-repeat;  /* Evita que la imagen se repita */
+  color: white; /* Color del texto */
+  padding: 2rem 0; /* Espaciado superior e inferior para darle más altura al footer */
+  min-height: 250px; /* Asegura una altura mínima para el footer */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho disponible */
+}
+
+/* Contenedor del footer */
+.footer-container {
+  display: flex; /* Usa flexbox */
+  justify-content: space-between; /* Espacia los elementos */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 1rem; /* Espaciado interno */
+  margin: 0 auto; /* Centra el contenedor */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  background-color: rgba(51, 51, 51, 0.7); /* Fondo semi-transparente para que el texto sea legible */
+  border-radius: 13px;
+}
+
+/* Estilos para el contenido y el iframe */
+.footer-content {
+  flex: 1; /* Permite que este contenido use el espacio disponible */
+  min-width: 300px; /* Asegura que el contenido no sea demasiado estrecho */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.iframe-container {
+  flex: 0 0 auto; /* Mantiene el iframe en su tamaño natural */
+  margin-left: auto; /* Alinea el iframe a la derecha */
+  min-width: 300px; /* Asegura que el iframe tenga un ancho mínimo */
+  max-width: 100%; /* Asegura que el iframe no exceda el ancho del contenedor */
+}
+
+.newsletter-iframe {
+  width: 100%; /* Asegura que el iframe ocupe todo el ancho del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  border: none; /* Elimina el borde */
+  max-height: 400px; /* Puedes ajustar esto según sea necesario */
+}
+
+
+/* Estilos para los párrafos y enlaces */
+.footer-container p {
+  margin: 0.5rem 0; /* Espaciado entre párrafos */
+  text-align: left; /* Alinea el texto de los párrafos a la izquierda */
+}
+
+.footer-container a {
+  color: white; /* Color del enlace */
+  text-decoration: none; /* Sin subrayado */
+}
+
+.footer-container a:hover {
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+      align-items: center; /* Centra el contenido */
+      text-align: center; /* Alinea el texto al centro en pantallas pequeñas */
+  }
+
+  .iframe-container {
+      margin-left: 0; /* Elimina el margen en pantallas pequeñas */
+      margin-top: 1rem; /* Agrega espacio arriba del iframe */
+      width: 100%; /* Permite que el iframe ocupe el 100% de su contenedor */
+  }
+
+  .footer-content {
+      min-width: auto; /* Elimina el ancho mínimo en pantallas pequeñas */
+  }
+}
+
+
 /*nosotros*/
 .hero-section {
   background: #f4f4f4;
   padding: 50px 0;
   text-align: center;
-  
 }
 
 .container {
@@ -681,13 +891,6 @@ footer .socials a {
   font-size: 16px;
 }
 
-.footer-container {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-
 .scroll-section {
   padding: 50px 20px;
   background-color: #f5f5f5;
@@ -746,12 +949,6 @@ footer .socials a {
   filter: brightness(0.7);
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
 
 /*texto cabezera que hacemos*/
 .text-section {
@@ -847,64 +1044,148 @@ footer {
     margin-bottom: 20px;
   }
 }
-
-/* Servicio */
-.services {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px;
+/* Estilo para el contenedor reutilizado */
+.flip-card-container-reutilizada .flip-card {
+  background-color: transparent;
+  width: 350px; /* Tamaño de la tarjeta */
+  height: 250px; /* Tamaño de la tarjeta */
+  perspective: 1000px; /* Perspectiva 3D */
+  position: relative; /* Necesario para el efecto de 3D */
 }
 
-.service-item {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none; 
-  color: inherit; 
-}
-
-.service-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  color: #ABD579; 
-}
-
-.service-item a {
-  text-decoration: none; 
-  color: #252456; 
-}
-
-.service-item a:hover {
-  color: #ABD579; 
-}
-
-.service-img {
+/* Contenedor interno para el efecto flip */
+.flip-card-container-reutilizada .flip-card-inner {
+  position: absolute; /* Posición absoluta para asegurarse de que ocupe todo el espacio de la tarjeta */
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Necesario para la rotación en 3D */
 }
 
-.service-title {
+/* Efecto de voltear la tarjeta al hacer hover */
+.flip-card-container-reutilizada .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* Volteamos la tarjeta */
+}
+
+/* Estilo de la parte frontal y trasera */
+.flip-card-container-reutilizada .flip-card-front,
+.flip-card-container-reutilizada .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Oculta la parte trasera cuando está volteada */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Estilo de la parte frontal */
+.flip-card-container-reutilizada .flip-card-front {
+  background-color: #ffffff;
+  color: #ABD579;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  position: absolute; /* Asegura que esté en el mismo espacio que la parte trasera */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+
+/* Estilo de la imagen dentro de la tarjeta */
+.flip-card-container-reutilizada .flip-card-front img {
+  position: absolute; /* La imagen se posicionará como fondo de la tarjeta */
+  top: 0; /* Alinea la imagen a la parte superior */
+  left: 0; /* Alinea la imagen a la izquierda */
+  width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+  height: 100%; /* Hace que la imagen ocupe toda la altura de la tarjeta */
+  object-fit: cover; /* Asegura que la imagen cubra toda el área de la tarjeta sin distorsionarse */
+  border-radius: 10px; /* Redondea las esquinas de la imagen */
+  margin: 0; /* Elimina cualquier margen alrededor de la imagen */
+}
+
+/* Estilo de la parte trasera */
+.flip-card-container-reutilizada .flip-card-back {
+  background-color: #252456;
+  color: white;
+  transform: rotateY(180deg); /* La parte trasera solo es visible cuando la tarjeta se voltea */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  border-radius: 10px;
+  position: absolute; /* Asegura que esté en el mismo espacio que la parte delantera */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Estilos comunes para los contenedores */
+.flip-card-container-original,
+.flip-card-container-reutilizada {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  align-items: center;     /* Centra las tarjetas verticalmente */
+  flex-wrap: wrap;         /* Permite que las tarjetas se ajusten a varias líneas si es necesario */
+  gap: 20px;               /* Espacio entre las tarjetas */
+  margin: 0 auto;          /* Centra el contenedor en su contenedor padre */
+  width: 100%;             /* Hace que el contenedor ocupe el 100% del ancho disponible */
+  padding: 20px;           /* Añade un pequeño padding para no pegar las tarjetas al borde */
 }
 
-.fade-in {
-  animation: fadeIn 0.5s forwards;
+/* Estilo para las tarjetas dentro del contenedor */
+.flip-card-container-original .flip-card,
+.flip-card-container-reutilizada .flip-card {
+  background-color: transparent;
+  width: 350px; /* Tamaño de la tarjeta */
+  height: 250px; /* Tamaño de la tarjeta */
+  perspective: 1000px; /* Agrega perspectiva 3D */
+  display: inline-block; /* Asegura que las tarjetas se alineen en una fila */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para las tarjetas */
+  border-radius: 10px;   /* Esquinas redondeadas */
+  transition: box-shadow 0.3s ease-in-out; /* Transición suave para la sombra */
+}
+
+/* Estilo de la parte frontal (para ambos contenedores) */
+.flip-card-container-original .flip-card-front,
+.flip-card-container-reutilizada .flip-card-front {
+  background-color: #ffffff;
+  color: #ABD579;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+/* Estilo para la parte trasera (para ambos contenedores) */
+.flip-card-container-original .flip-card-back,
+.flip-card-container-reutilizada .flip-card-back {
+  background-color: #252456;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+/* Estilo del título sobre la imagen */
+.flip-card-container-reutilizada .flip-card-front h3 {
+  top: 100px; /* Puedes ajustar la posición vertical del título */
+  z-index: 2; /* Esto asegura que el título esté por encima de la imagen */
+  color: #ffffff; /* Puedes cambiar el color del texto según tu diseño */
+  font-size: 24px; /* Ajusta el tamaño del título */
+  font-weight: bold; /* Aumenta la prominencia del título */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Opcional: agrega sombra al texto para hacerlo más legible sobre la imagen */
 }
